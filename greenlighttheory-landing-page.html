@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLight Theory — Pass Your UK Theory Test | Somali, Arabic & English</title>
+    <meta name="description" content="The UK's first theory test app that actually teaches you. Prepare for your DVSA theory test and hazard perception in English, Somali, and Arabic. Built by an ADI who sees the gap every day.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-900: #0a2e12;
+            --green-800: #14532d;
+            --green-700: #166534;
+            --green-600: #16a34a;
+            --green-500: #22c55e;
+            --green-400: #4ade80;
+            --green-300: #86efac;
+            --green-200: #bbf7d0;
+            --green-100: #dcfce7;
+            --green-50: #f0fdf4;
+            --amber-400: #fbbf24;
+            --amber-500: #f59e0b;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 { font-family: 'Fraunces', serif; }
+
+        /* ======= NAV ======= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+        }
+        nav.scrolled {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--green-800);
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--green-600);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            font-family: 'Fraunces', serif;
+            box-shadow: 0 2px 8px rgba(22,163,74,0.3);
+        }
+        .logo-text {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .logo-text span { color: var(--green-600); }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--green-700); }
+        .nav-cta {
+            background: var(--green-600) !important;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+            box-shadow: 0 2px 12px rgba(22,163,74,0.25);
+        }
+        .nav-cta:hover {
+            background: var(--green-700) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(22,163,74,0.35);
+        }
+
+        /* ======= HERO ======= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, var(--green-900) 0%, var(--green-800) 40%, #0f3d1e 100%);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(34,197,94,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74,222,128,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-content { color: white; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--green-300);
+            font-weight: 500;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease;
+        }
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green-400);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--green-400);
+        }
+        .hero-sub {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.7);
+            max-width: 520px;
+            margin-bottom: 36px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--green-500);
+            color: var(--green-900);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 24px rgba(34,197,94,0.3);
+        }
+        .btn-primary:hover {
+            background: var(--green-400);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(34,197,94,0.4);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.25);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        /* Hero visual */
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        .phone-mockup {
+            width: 300px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);
+            position: relative;
+        }
+        .phone-screen {
+            background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 30%);
+            border-radius: 30px;
+            overflow: hidden;
+            aspect-ratio: 9/19;
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-status {
+            padding: 12px 24px 8px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+        .phone-header {
+            padding: 16px 20px;
+            text-align: center;
+        }
+        .phone-header h3 {
+            font-size: 16px;
+            color: var(--green-800);
+            margin-bottom: 4px;
+        }
+        .phone-header p {
+            font-size: 11px;
+            color: var(--gray-500);
+        }
+        .phone-question {
+            margin: 0 16px;
+            padding: 16px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--gray-800);
+            font-weight: 500;
+        }
+        .phone-options {
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .phone-option {
+            padding: 12px 14px;
+            background: white;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .phone-option.correct {
+            background: var(--green-50);
+            border-color: var(--green-500);
+            color: var(--green-800);
+            font-weight: 600;
+        }
+        .phone-option-letter {
+            width: 24px;
+            height: 24px;
+            border-radius: 8px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+        .phone-option.correct .phone-option-letter {
+            background: var(--green-500);
+            color: white;
+        }
+        .phone-teach-me {
+            margin: 8px 16px;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--green-600), var(--green-700));
+            border-radius: 14px;
+            color: white;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .phone-teach-me strong {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+        .floating-badge {
+            position: absolute;
+            background: white;
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: float 3s ease-in-out infinite;
+        }
+        .floating-badge.lang {
+            top: 20%;
+            right: -20px;
+            animation-delay: 0.5s;
+        }
+        .floating-badge.score {
+            bottom: 25%;
+            left: -30px;
+        }
+        .floating-badge .badge-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ======= LANGUAGES ======= */
+        .languages {
+            padding: 80px 0;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-100);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .languages-inner {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .lang-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 32px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+        .lang-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        .lang-flag { font-size: 36px; }
+        .lang-name { font-weight: 700; font-size: 18px; color: var(--gray-800); }
+        .lang-script { color: var(--gray-500); font-size: 15px; }
+
+        /* ======= PROBLEM ======= */
+        .problem {
+            padding: 120px 0;
+            background: white;
+        }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--green-600);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+        .section-label-line {
+            width: 24px;
+            height: 2px;
+            background: var(--green-500);
+        }
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+        }
+        .section-sub {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--gray-500);
+            max-width: 640px;
+            margin-bottom: 60px;
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .problem-card {
+            padding: 36px;
+            background: var(--gray-50);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+        }
+        .problem-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .problem-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 12px;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .problem-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray-500);
+        }
+
+        /* ======= TEACH ME ======= */
+        .teach-me {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--green-50) 0%, white 100%);
+        }
+        .teach-me .section-title { text-align: center; }
+        .teach-me .section-label { display: flex; justify-content: center; }
+        .teach-me .section-sub { text-align: center; margin: 0 auto 60px; }
+        .teach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .teach-card {
+            padding: 40px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .teach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-500), var(--green-400));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .teach-card:hover::before { opacity: 1; }
+        .teach-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+        }
+        .teach-card .icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .teach-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 12px;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .teach-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray-500);
+        }
+
+        /* ======= ADI QUOTE ======= */
+        .adi-section {
+            padding: 100px 0;
+            background: var(--green-900);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .adi-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(34,197,94,0.1), transparent 70%);
+            border-radius: 50%;
+        }
+        .adi-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .adi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 14px;
+            color: var(--green-300);
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+        .adi-quote {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(24px, 3vw, 34px);
+            line-height: 1.5;
+            font-weight: 400;
+            font-style: italic;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 32px;
+        }
+        .adi-quote em {
+            color: var(--green-400);
+            font-style: italic;
+        }
+        .adi-name {
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+        .adi-role {
+            color: var(--green-300);
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        /* ======= FEATURES ======= */
+        .features {
+            padding: 120px 0;
+            background: white;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .feature-item {
+            padding: 32px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+        .feature-item:hover {
+            background: var(--green-50);
+            border-color: var(--green-200);
+        }
+        .feature-item .icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .feature-item h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 8px;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .feature-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--gray-500);
+        }
+
+        /* ======= CTA ======= */
+        .cta {
+            padding: 120px 0;
+            background: linear-gradient(160deg, var(--green-800), var(--green-900));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(34,197,94,0.12), transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(74,222,128,0.08), transparent 50%);
+        }
+        .cta-inner { position: relative; z-index: 2; }
+        .cta h2 {
+            font-size: clamp(36px, 4vw, 52px);
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .cta p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.65);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .cta-email {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .cta-email input {
+            flex: 1;
+            padding: 16px 24px;
+            border-radius: 50px;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-size: 16px;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        .cta-email input::placeholder { color: rgba(255,255,255,0.4); }
+        .cta-email input:focus { border-color: var(--green-400); background: rgba(255,255,255,0.12); }
+        .cta-email button {
+            padding: 16px 32px;
+            background: var(--green-500);
+            color: var(--green-900);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .cta-email button:hover {
+            background: var(--green-400);
+            transform: translateY(-1px);
+        }
+
+        /* ======= FOOTER ======= */
+        footer {
+            padding: 48px 0;
+            background: var(--green-900);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-left { color: rgba(255,255,255,0.4); font-size: 14px; }
+        .footer-right { display: flex; gap: 24px; }
+        .footer-right a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-right a:hover { color: var(--green-400); }
+
+        /* ======= RESPONSIVE ======= */
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero-sub { margin: 0 auto 36px; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { display: none; }
+            .problem-grid { grid-template-columns: 1fr; }
+            .teach-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .cta-email { flex-direction: column; }
+            .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+        }
+        @media (max-width: 600px) {
+            .hero-actions { flex-direction: column; align-items: center; }
+            .languages-inner { gap: 16px; }
+            .lang-card { padding: 16px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">G</div>
+            <div class="logo-text">Green<span>Light</span> Theory</div>
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#teach-me">Teach Me</a>
+            <a href="#languages">Languages</a>
+            <a href="#notify" class="nav-cta">Get Early Access</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Coming Soon — Built by a DVSA Approved Driving Instructor
+            </div>
+            <h1>Don't just pass<br>your theory test.<br><em>Understand it.</em></h1>
+            <p class="hero-sub">The first theory test app that actually teaches you the meaning behind every question, sign, and hazard. Available in English, Somali, and Arabic.</p>
+            <div class="hero-actions">
+                <a href="#notify" class="btn-primary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    Notify Me at Launch
+                </a>
+                <a href="#teach-me" class="btn-secondary">See How It Works ↓</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-status">
+                        <span>9:41</span>
+                        <span>●●● WiFi ▇</span>
+                    </div>
+                    <div class="phone-header">
+                        <h3>🟢 Theory Practice</h3>
+                        <p>Question 23 of 50 • Road Signs</p>
+                    </div>
+                    <div class="phone-question">
+                        What does this sign mean?<br>
+                        <div style="text-align:center;font-size:32px;padding:10px">⚠️</div>
+                    </div>
+                    <div class="phone-options">
+                        <div class="phone-option">
+                            <span class="phone-option-letter">A</span>
+                            Road works ahead
+                        </div>
+                        <div class="phone-option correct">
+                            <span class="phone-option-letter">B</span>
+                            General warning of hazard
+                        </div>
+                        <div class="phone-option">
+                            <span class="phone-option-letter">C</span>
+                            Slippery road surface
+                        </div>
+                    </div>
+                    <div class="phone-teach-me">
+                        <strong>💡 Teach Me</strong>
+                        A plain triangle with an exclamation mark is a general warning. It's placed where no specific sign exists for the hazard ahead. Stay alert and be prepared to slow down.
+                    </div>
+                </div>
+            </div>
+            <div class="floating-badge lang">
+                <div class="badge-icon" style="background:#f0fdf4">🇸🇴</div>
+                <div>
+                    <div style="font-size:12px;color:#6b7280">Somali</div>
+                    <div>Af Soomaali</div>
+                </div>
+            </div>
+            <div class="floating-badge score">
+                <div class="badge-icon" style="background:#dcfce7;color:#16a34a">✓</div>
+                <div>
+                    <div style="font-size:12px;color:#6b7280">Mock Test</div>
+                    <div>47/50 Pass!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="languages" id="languages">
+    <div class="container">
+        <div class="languages-inner">
+            <div class="lang-card">
+                <span class="lang-flag">🇬🇧</span>
+                <div>
+                    <div class="lang-name">English</div>
+                    <div class="lang-script">Full course</div>
+                </div>
+            </div>
+            <div class="lang-card">
+                <span class="lang-flag">🇸🇴</span>
+                <div>
+                    <div class="lang-name">Somali</div>
+                    <div class="lang-script">Af Soomaali</div>
+                </div>
+            </div>
+            <div class="lang-card">
+                <span class="lang-flag">🇸🇦</span>
+                <div>
+                    <div class="lang-name">Arabic</div>
+                    <div class="lang-script">العربية</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+    <div class="container">
+        <div class="section-label"><span class="section-label-line"></span> The Problem</div>
+        <h2 class="section-title">Passing isn't the same<br>as understanding.</h2>
+        <p class="section-sub">Most theory test apps treat revision as a memory game. Learners cram, pass, and forget. They arrive at their first lesson unable to explain what a road sign means. We're changing that.</p>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon" style="background:#fef2f2">😤</div>
+                <h3>Memorise & Forget</h3>
+                <p>Current apps show questions and answers on repeat. Learners memorise "the answer is C" without understanding why. That knowledge disappears the moment they leave the test centre.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon" style="background:#fffbeb">🌍</div>
+                <h3>Language Barriers</h3>
+                <p>Over 300,000 UK learners speak Somali or Arabic as their first language. They're capable drivers held back by questions they can't fully understand in English.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon" style="background:#f0fdf4">🚗</div>
+                <h3>Unsafe New Drivers</h3>
+                <p>The theory test should produce knowledgeable drivers. But when learners don't truly understand hazards, road signs, and safety rules, they're less safe from day one.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEACH ME -->
+<section class="teach-me" id="teach-me">
+    <div class="container">
+        <div class="section-label"><span class="section-label-line"></span> Our Solution</div>
+        <h2 class="section-title">The "Teach Me" difference.</h2>
+        <p class="section-sub">Every question, sign, and hazard clip comes with a clear, detailed explanation. Not just what the answer is — but why it matters on the road.</p>
+        <div class="teach-grid">
+            <div class="teach-card">
+                <span class="icon">📖</span>
+                <h3>Question Explanations</h3>
+                <p>Every DVSA revision question includes a plain-language breakdown: why the correct answer is right, why the others are wrong, and what it means for real-world driving. In your language.</p>
+            </div>
+            <div class="teach-card">
+                <span class="icon">🚦</span>
+                <h3>Road Signs & Markings</h3>
+                <p>Visual breakdowns of every UK road sign. Not just what it means, but where you'll find it, what action to take, and common mistakes learners make.</p>
+            </div>
+            <div class="teach-card">
+                <span class="icon">🎬</span>
+                <h3>Hazard Walkthroughs</h3>
+                <p>Guided explanations of every hazard perception clip. Understand what the developing hazard is, when it starts, why it's dangerous, and what a safe driver would do.</p>
+            </div>
+            <div class="teach-card">
+                <span class="icon">🧠</span>
+                <h3>Learn, Then Test</h3>
+                <p>Topic-based modules teach you the concepts first — then test your understanding. Build genuine knowledge across all areas, from motorways to vulnerable road users.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADI QUOTE -->
+<section class="adi-section">
+    <div class="container">
+        <div class="adi-inner">
+            <div class="adi-badge">🪪 Built by an ADI</div>
+            <p class="adi-quote">"Every day I see learners who passed their theory test but can't tell me what a road sign means. They memorised answers, not knowledge. <em>I built GreenLight Theory because I'm tired of apps that help people pass tests — I want an app that produces safe drivers.</em>"</p>
+            <div class="adi-name">Jamal</div>
+            <div class="adi-role">DVSA Approved Driving Instructor & Founder, GreenLight Theory</div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="section-label"><span class="section-label-line"></span> Features</div>
+        <h2 class="section-title">Everything you need to<br>pass — and understand.</h2>
+        <p class="section-sub">Official DVSA content with genuine learning built in.</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="icon">✅</span>
+                <h3>DVSA Revision Questions</h3>
+                <p>All official question banks for car, motorcycle, LGV/PCV, and ADI tests with full explanations.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🎥</span>
+                <h3>Hazard Perception Clips</h3>
+                <p>Official DVSA CGI clips with interactive scoring and detailed review of each developing hazard.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">⏱️</span>
+                <h3>Timed Mock Tests</h3>
+                <p>Realistic mock tests matching the exact DVSA format: 50 questions, 57 minutes, instant results.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">📊</span>
+                <h3>Progress Tracking</h3>
+                <p>Topic-by-topic performance analysis so you know exactly where to focus your revision.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🌐</span>
+                <h3>Bilingual Interface</h3>
+                <p>Questions and explanations in both English and your chosen language, side by side.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">📴</span>
+                <h3>Works Offline</h3>
+                <p>Download everything and study anywhere — no internet connection needed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="notify">
+    <div class="cta-inner container">
+        <h2>Ready to actually<br><em style="color:#4ade80">learn</em> the theory?</h2>
+        <p>Be the first to know when GreenLight Theory launches. Join the waitlist for early access.</p>
+        <div class="cta-email">
+            <input type="email" placeholder="Enter your email address">
+            <button onclick="alert('Thanks! We\'ll notify you when GreenLight Theory launches.')">Join Waitlist</button>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">© 2026 GreenLight Theory. All rights reserved.</div>
+        <div class="footer-right">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+        document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Animate on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.problem-card, .teach-card, .feature-item, .lang-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
