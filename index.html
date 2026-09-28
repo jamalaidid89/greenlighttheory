@@ -1279,9 +1279,12 @@
         <h2>Ready to actually<br><em style="color:#4ade80">learn</em> the theory?</h2>
         <p>Be the first to know when GreenLight Theory launches. Join the waitlist for early access.</p>
         <div class="cta-email">
-            <input type="email" placeholder="Enter your email address">
-            <button onclick="alert('Thanks! We\'ll notify you when GreenLight Theory launches.')">Join Waitlist</button>
+            <input type="email" id="wl-email" placeholder="Enter your email address" autocomplete="email" maxlength="254">
+            <input type="text" id="wl-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <button id="wl-btn" onclick="joinWaitlist()">Join Waitlist</button>
         </div>
+        <p id="wl-msg" role="status" style="min-height:1.4em;margin:12px 0 0;font-size:15px"></p>
+        <p style="font-size:13px;opacity:.75;margin:6px 0 0">We'll only email you about the launch. Unsubscribe any time. See our <a href="/privacy" style="color:inherit;text-decoration:underline">Privacy Policy</a>.</p>
     </div>
 </section>
 
@@ -1321,5 +1324,33 @@
     });
 </script>
 
+<script>
+// Waitlist: saves to Supabase (insert-only table; the public key cannot read the list).
+async function joinWaitlist() {
+  const email = document.getElementById('wl-email').value.trim().toLowerCase();
+  const trap = document.getElementById('wl-website').value;
+  const msg = document.getElementById('wl-msg');
+  const btn = document.getElementById('wl-btn');
+  if (trap) return; // bots fill the hidden field
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    msg.textContent = 'Please enter a valid email address.'; msg.style.color = '#fca5a5'; return;
+  }
+  btn.disabled = true; btn.textContent = 'Joining…';
+  try {
+    const r = await fetch('https://fvsdemjtvxfoneluitzn.supabase.co/rest/v1/waitlist', {
+      method: 'POST',
+      headers: { 'apikey': 'sb_publishable_9-eHOExBbFWe8ETW0GMDcg_GmgzsDpp', 'Authorization': 'Bearer sb_publishable_9-eHOExBbFWe8ETW0GMDcg_GmgzsDpp',
+                 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify({ email, source: 'website' })
+    });
+    if (r.ok) { msg.textContent = "You're on the list! We'll email you when GreenLight Theory launches."; msg.style.color = '#4ade80'; document.getElementById('wl-email').value = ''; }
+    else if (r.status === 409) { msg.textContent = "You're already on the list. We'll be in touch at launch."; msg.style.color = '#4ade80'; }
+    else { throw new Error(String(r.status)); }
+  } catch (e) {
+    msg.textContent = 'Something went wrong. Please try again, or email support@greenlighttheory.co.uk.'; msg.style.color = '#fca5a5';
+  } finally { btn.disabled = false; btn.textContent = 'Join Waitlist'; }
+}
+document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && document.activeElement && document.activeElement.id === 'wl-email') joinWaitlist(); });
+</script>
 </body>
 </html>
